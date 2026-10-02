@@ -14,6 +14,10 @@
   closed test starts, which is the app's first real-world exposure. It is
   written out as "17 September 2026" on purpose: readable on a public page and
   free of day/month ambiguity. No placeholders remain in this file.
+
+  Revised 2026-10-01 (Phase C, the languages version): effective date and
+  footer now "1 October 2026", same written-out style; Section 4 lists
+  language downloads, including the automatic re-download on a new phone.
 -->
 <html lang="en">
 <head>
@@ -64,7 +68,7 @@
     margin: 0 0 1rem;
   }
   .lede p:last-child { margin-bottom: 0; }
-  ul { padding-left: 1.35rem; }
+  ul, ol { padding-left: 1.35rem; }
   li { margin: .45rem 0; }
   a { color: var(--gold); }
   code {
@@ -88,7 +92,7 @@
 <header>
   <h1>Privacy Policy for Guidance</h1>
   <p class="meta">
-    <strong>Effective date:</strong> 17 September 2026<br>
+    <strong>Effective date:</strong> 1 October 2026<br>
     <strong>App:</strong> Guidance (Android) — package <code>com.gmstudio.guidance</code><br>
     <strong>Published by:</strong> GM Studio<br>
     <strong>Contact:</strong> <a href="mailto:gmstudioapps@gmail.com">gmstudioapps@gmail.com</a>
@@ -101,7 +105,9 @@
   the app remembers — where you are up to in your reading, the verses you have saved, your reminder
   times and your settings — is stored only on your own phone. None of it is ever sent to us, and we
   have no way to see it.</p>
-  <p>The app works fully offline. The complete Quran is included inside the app itself.</p>
+  <p>The app works fully offline. The complete Quran, in Arabic with two English translations, is
+  included inside the app itself. Other languages are downloaded once, and only if you choose
+  one.</p>
 </div>
 
 <h2>1. What Guidance stores, and where</h2>
@@ -112,16 +118,18 @@
   <li><strong>Your favourites</strong> — verses you have saved, the collections you have organised
     them into, and a copy of the wording of each saved verse as it read when you saved it.</li>
   <li><strong>Your reminders</strong> — whether reminders are on, and the times of day you chose.</li>
-  <li><strong>Your settings</strong> — your chosen English translation, your colour theme, whether
-    the app follows your phone's light/dark setting, and how your home-screen widget is set up (what
-    it shows, its colours, and whether it has a background card).</li>
+  <li><strong>Your settings</strong> — your chosen translation, your text sizes, whether the
+    transliteration line is shown, whether the quick controls are shown when the app opens, your
+    colour theme, whether the app follows your phone's light/dark setting, and how your home-screen
+    widget is set up (what it shows, its colours, and whether it has a background card).</li>
   <li><strong>A small technical marker</strong> used to tell a brand-new install from one that has
     been restored from a backup, so the app can re-arm your reminders correctly.</li>
   <li><strong>The date you last used "Refresh offline Quran"</strong>, if you have used it.</li>
 </ul>
 <p>These are stored in Android's standard app preferences file (roughly 20 KB in total). If you use
 "Refresh offline Quran", a fresh copy of the Quran text (about 3 MB) is also saved in the app's own
-private file storage.</p>
+private file storage. If you download a language, its text (about 1 to 3 MB) is saved there too, so
+it can be read offline.</p>
 <p><strong>What Guidance does not collect at all:</strong> your name, email address, phone number,
 location, contacts, photos, files, calendar, microphone or camera input, device or advertising
 identifiers, or any usage or behavioural data. The app has no analytics, no crash-reporting service,
@@ -138,7 +146,8 @@ or your settings.</p>
 app data survive changing or resetting your phone. This means:</p>
 <ul>
   <li>A copy of the settings file described in Section 1 (roughly 20 KB — reading progress,
-    favourites, reminder times and settings) is backed up <strong>to your own Google account /
+    favourites, reminder times and settings, including which translation you chose) is backed up
+    <strong>to your own Google account /
     Google Drive</strong>, if you have Android's backup feature switched on.</li>
   <li>This backup belongs to you, not to us. It is stored under your Google account, it does not
     count against your Drive storage quota, and <strong>the developer of this app cannot access
@@ -146,8 +155,9 @@ app data survive changing or resetting your phone. This means:</p>
   <li>The same data may be copied directly from your old phone to your new one during Android's
     phone-to-phone setup transfer.</li>
   <li>Deliberately <strong>not</strong> backed up: the downloaded offline Quran copy (the app already
-    contains it), the home-screen widget's temporary display data, and the scheduled-notification
-    queue (which the app rebuilds from your reminder times).</li>
+    contains it), any languages you downloaded (on a new phone the app downloads your chosen
+    language again — see Section 4), the home-screen widget's temporary display data, and the
+    scheduled-notification queue (which the app rebuilds from your reminder times).</li>
 </ul>
 <p>You control this. It can be switched off in Android's own settings — typically
 <strong>Settings → Google → Backup</strong> — either for the whole phone or for individual apps,
@@ -155,27 +165,38 @@ depending on your device.</p>
 
 <h2>4. When the app uses the internet</h2>
 <p>Guidance is designed to work with no internet connection at all. The entire Quran — the Arabic
-text and both English translations — is included inside the app when you install it, so reading,
-Today's Verse, browsing chapters, reminders and the widget all work offline.</p>
+text, two English translations and an English transliteration — is included inside the app when you
+install it, so reading, Today's Verse, browsing chapters, reminders and the widget all work offline.
+Other languages are not included in the app: each one is downloaded once, only if you choose it, and
+then works offline too.</p>
 <p>The app connects to the internet in only these situations:</p>
-<ul>
+<ol>
+  <li><strong>Choosing a language</strong> (More → Settings → Translation) — when you pick a language
+    that is not built in, the app downloads it once from the public <strong>alquran.cloud</strong>
+    service.</li>
+  <li><strong>Getting your chosen language back</strong> — if the language you chose is missing from
+    the phone, for example after your settings were restored onto a new phone, the app downloads it
+    again automatically while the app is open and connected, and shows English (Saheeh
+    International) until it arrives. This is the only time the app goes online without you tapping
+    something.</li>
   <li><strong>"Refresh offline Quran"</strong> (More → Offline data) — and only when you tap it
-    yourself. This downloads a fresh copy of the Quran text from the public
-    <strong>alquran.cloud</strong> service and replaces the copy stored on your device. The request
-    contains no personal information and no identifier of you or your device. As with any internet
-    request, the service you are connecting to will necessarily see your device's IP address and
-    standard connection information; that handling is governed by alquran.cloud's own terms and
-    privacy practices, not ours.</li>
-  <li><strong>Opening the tanzil.net link</strong> on the About &amp; Credits screen — this hands off
-    to your phone's web browser and you leave the app. What happens then is between you, your browser
-    and that site.</li>
-</ul>
+    yourself. This downloads fresh copies of the Arabic text, both English translations, the
+    transliteration and any language you have downloaded from alquran.cloud, and replaces the copies
+    stored on your device.</li>
+  <li><strong>Opening a web link</strong> on the About &amp; Credits screen (tanzil.net, Tanzil's
+    list of translations, or this privacy policy) — this hands off to your phone's web browser and
+    you leave the app. What happens then is between you, your browser and that site.</li>
+</ol>
+<p>Each download request contains no personal information and no identifier of you or your device —
+only which text is wanted. As with any internet request, alquran.cloud will necessarily see your
+device's IP address and standard connection information; that handling is governed by
+alquran.cloud's own terms and privacy practices, not ours.</p>
 <p>Nothing else in the app makes a network request.</p>
 
 <h2>5. Permissions the app asks for, and why</h2>
 <ul>
-  <li><strong>Internet</strong> — used only for the manual "Refresh offline Quran" action described
-    above.</li>
+  <li><strong>Internet</strong> — used only to download a language you choose (or get it back on a
+    new phone) and for the "Refresh offline Quran" action, as described above.</li>
   <li><strong>Run at startup</strong> — so your reminders are still scheduled after you restart your
     phone. Without it, restarting silently cancels them.</li>
   <li><strong>Notifications</strong> — to show the verse reminders you have set up. Android asks your
@@ -193,7 +214,7 @@ anywhere.</p>
 storing settings on the device, saving a file to the device, showing local notifications, drawing the
 home-screen widget, picking colours, displaying artwork, reading the app's version number, following
 your phone's theme colours, opening a web link in your browser, handling time zones for reminders,
-and making the one network request described in Section 4.</p>
+and making the network requests described in Section 4.</p>
 <p>None of these components collect personal data, show advertising, or report analytics. There is no
 advertising network, analytics service, crash-reporting service or tracking software of any kind in
 this app.</p>
@@ -210,7 +231,8 @@ information at all, there is nothing held about any user for us to review or del
 <h2>8. How to delete your data</h2>
 <ul>
   <li><strong>Everything on your phone:</strong> uninstalling Guidance permanently deletes all of the
-    app's data from your device — your reading progress, favourites, reminders and settings. You can
+    app's data from your device — your reading progress, favourites, reminders, settings and any
+    downloaded languages. You can
     also use Android's <strong>Settings → Apps → Guidance → Storage → Clear data</strong> to reset
     the app without uninstalling it.</li>
   <li><strong>The backup copy in your Google account</strong> is separate and survives uninstalling.
@@ -235,7 +257,7 @@ effective date. Material changes will also be noted in the app's release notes o
 <a href="mailto:gmstudioapps@gmail.com">gmstudioapps@gmail.com</a></p>
 
 <footer>
-  Guidance is published by GM Studio. Last updated 17 September 2026.
+  Guidance is published by GM Studio. Last updated 1 October 2026.
 </footer>
 
 </main>
